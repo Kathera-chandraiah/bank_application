@@ -17,5 +17,10 @@ public class InputUtil {
 		int choice = Integer.parseInt(sc.nextLine());
 		return choice;
 	}
+	public static double readDouble(String message) {
+		System.out.println(message);
+		double amount = Double.parseDouble(sc.nextLine());
+		return amount;
+	}
 
 }

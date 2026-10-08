@@ -1,6 +1,7 @@
 package app;
 
 import app.service.CustomerService;
+import app.service.EmployeeService;
 import app.utils.InputUtil;
 
 public class BankApplication {
@@ -25,6 +26,7 @@ public class BankApplication {
 				CustomerService.customerMenu();
 
 			} else if (choice == 2) {
+				EmployeeService.employeeMenu();
 
 			} else if (choice == 3) {
 

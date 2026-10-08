@@ -23,6 +23,15 @@ public class UserDao {
 			}
 		}
 	}
+	public boolean existsByPhone(Connection connection, String Phone) throws SQLException {
+		String sql = "SELECT user_id FROM users WHERE phone= ?";
+		try(PreparedStatement ps = connection.prepareStatement(sql)) {
+			ps.setString(1, Phone);
+			try(ResultSet rs = ps.executeQuery()) {
+				return rs.next();
+			}
+		}
+	}
 
 	public long createUser(Connection connection, User user) throws SQLException {
 
@@ -79,5 +88,15 @@ public class UserDao {
 
 		return null;
 	}
+	public void updatePassword(Connection connection, long userId, String newPassword) throws SQLException {
+		String sql = "UPDATE users SET password = ? WHERE user_id = ?";
+		try (PreparedStatement ps = connection.prepareStatement(sql)) {
+			ps.setString(1, newPassword);
+			ps.setLong(2, userId);
+			ps.executeUpdate();
+		}
+	}
+
+	
 
 }
